@@ -7,6 +7,7 @@ int solve(int n, int p)
        int back=0;
        front=(p-0)/2;
        back=(n-p)/2;
+       
        if(front<=back)
        {
            return front;
