@@ -1,31 +1,56 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int jumpingOnClouds(vector <int> c,int n) 
+int n,m;
+string topic[1000];
+
+void acmTeam() 
 {
+    string b="1";
     int count=0;
-        int i=0;
-        while(i<n-1)
+    int max=0;
+    int a=0;
+    for(int i=0;i<n-1;i++)
+    {
+        for(int k=i+1;k<n;k++)
         {
-            count++;
-            if(c[i+2]==1)
-            {   
-                i=i+1;
+            for(int j=0;j<m;j++)
+            {
+                
+                if((topic[i][j]=='1')||(topic[k][j]=='1'))
+                {
+                    count++;
+                }
             }
-            else
-            { i=i+2;}
-        }
-        return count;
+            if(count==max)
+            {
+                a++;    
+            }
+            
+            if(count>max)
+            {
+                max=count;
+                a=1;
+            } 
+            count=0;
+                    
+        }  
+    }
+    
+    cout<<max<<endl;
+    cout<<a;
+    
+    
 }
 
 int main() {
-    int n;
-    cin >> n;
-    vector<int> c(n);
-    for(int c_i = 0; c_i < n; c_i++){
-       cin >> c[c_i];
+
+    cin >> n >> m;
+    
+    for(int topic_i = 0; topic_i < n; topic_i++){
+       cin >> topic[topic_i];
     }
-    int result = jumpingOnClouds(c,n);
-    cout << result << endl;
+    
+    acmTeam();
     return 0;
 }
