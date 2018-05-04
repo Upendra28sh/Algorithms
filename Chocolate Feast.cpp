@@ -14,7 +14,7 @@ int chocolateFeast(int n, int c, int m)
     while(a>=m)
     {
     nw=a/m;
-    r=iw%m;
+    r=a%m;
     count+=nw;
     a=r+nw;
     }
